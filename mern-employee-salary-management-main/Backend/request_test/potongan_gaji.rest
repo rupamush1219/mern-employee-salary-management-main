@@ -1,0 +1,24 @@
+### Get All Data Deduction Salary
+GET  http://localhost:5000/data_deduction
+
+### Create Data Deduction
+POST  http://localhost:5000/data_deduction
+Content-Type: application/json
+
+{
+    "id" : 1 ,
+    "deduction": "absences",
+    "total_deduction": 2000
+}
+
+### UPDATE data deduction
+PATCH  http://localhost:5000/data_deduction/update/3
+Content-Type: application/json
+
+{
+    "deduction" : "updated 1",
+    "total_deduction" : 9999
+}
+
+### DELETE Data Deduction
+DELETE http://localhost:5000/data_deduction/3

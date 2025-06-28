@@ -1,0 +1,71 @@
+*** Completion of the backend section ***
+
+// Admin Route :
+
+/* ==== Master Data ==== */
+// Employee Data
+router.get('/employee_data', verifyUser, adminOnly, getEmployeeData);
+router.get('/employee_data/id/:id', verifyUser, adminOnly, getEmployeeDataByID);
+router.get('/employee_data/nik/:nik', verifyUser, adminOnly, getEmployeeDataByNik);
+router.get('/employee_data/name/:name', verifyUser, adminOnly, getEmployeeDataByName);
+router.post('/employee_data', createEmployeeData);
+router.patch('/employee_data/:id', verifyUser, adminOnly, updateEmployeeData);
+router.delete('/employee_data/:id', verifyUser, adminOnly, deleteEmployeeData);
+router.patch('/employee_data/:id/change_password',  verifyUser, adminOnly, changePasswordAdmin);
+// Position Data
+router.get('/position_data', verifyUser, adminOnly, getDataPosition);
+router.post('/position_data', verifyUser, adminOnly, createDataPosition);
+router.patch('/position_data/:id', verifyUser,  adminOnly, updateDataPosition);
+router.delete('/position_data/:id', verifyUser, adminOnly, deleteDataPosition);
+
+/* ==== Transaction  ==== */
+// Attendance Data
+router.get('/attendance_data', verifyUser, adminOnly, viewAttendanceData);
+router.post('/attendance_data', createAttendanceData);
+router.patch('/attendance_data/update/:id', updateAttendanceData);
+router.delete('/attendance_data/:id', verifyUser, adminOnly, deleteAttendanceData);
+// Data Deduction
+router.get('/data_deduction', adminOnly, verifyUser, viewDeductionData);
+router.post('/data_deduction', adminOnly, verifyUser, createDeductionSalaryData);
+router.patch('/data_deduction/update/:id', adminOnly, verifyUser, updateDeductionData);
+router.delete('/data_deduction/:id', adminOnly, verifyUser, deleteDeductionData);
+// Data Salary
+router.get('/employee_salary_data', viewSalaryDataEmploy);
+router.get('/employee_salary_data/month/:month', viewSalaryDataEmployByMonth);
+router.get('/employee_salary_data/year/:year', viewSalaryDataEmployByYear);
+
+/* ====  Report  ==== */
+// Employee Salary Report
+router.get('/Report/salary', viewSalaryReportEmploy);
+router.get('/Report/salary/name/:name', viewSalaryReportEmployByName);
+router.get('/Report/salary/month/:month', viewSalaryReportEmployByMonth);
+router.get('/Report/salary/year/:year', viewSalaryReportEmployByYear);
+// Employee Attendance Report
+router.get('/Report/attendance/month/:month', viewReportAttendanceEmployByMonth);
+router.get('/Report/attendance/year/:year', viewReportAttendanceEmployByYear);
+// Employee Salary Slip
+router.get('/Report/salary_slip/name/:name', viewSalarySlipByName);
+router.get('/Report/salary_slip/month/:month', viewSalarySlipByMonth);
+router.get('/Report/salary_slip/year/:year', viewSalarySlipByYear);
+
+/* ==== Change Password ==== */
+router.patch('/change_password', verifyUser, changePassword);
+
+/* ==== Logout ==== */
+router.delete('/logout', LogOut);
+
+
+
+// Employ Route :
+/* ==== Dashboard ==== */
+router.get('/dashboard', verifyUser, dashboardEmploy);
+/* ==== Data Salary ==== */
+router.get('/salary_data/month/:month', verifyUser, viewSalaryDataSingleEmployByMonth);
+router.get('/salary_data/year/:year', verifyUser, viewSalaryDataSingleEmployByYear);
+/* ==== Change Password ==== */
+router.patch('/change_password', verifyUser, changePassword);
+/* ==== Logout ==== */
+router.delete('/logout', LogOut);
+
+
+** NOTE : Untuk versi 1, Backend telah selesai.
